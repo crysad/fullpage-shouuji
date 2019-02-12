@@ -1,0 +1,226 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<link rel="stylesheet" type="text/css" href="css/jquery.fullpage.css">
+	<script src="js/jquery-1.11.0.min.js"></script>
+    <script src="js/jquery.fullpage.js"></script>
+	<style type="text/css">
+		*{
+			margin: 0;padding: 0;
+		}
+		ul,li{list-style: none;}
+		.h2cs{text-align: center;color:#555; font-size: 40px;font-weight: 400}
+		.pcs{color:#666; font-size: 16px;font-weight: 400}
+		#menu { margin: 0; padding: 0; position: fixed; left: 100px; top: 10px; list-style-type: none; z-index: 70;}
+        #menu li { float: left; margin:  0 30px 0 0; font-size: 14px;}
+        #menu a { float: left; padding: 10px 20px; background-color: #fff; color: #333; text-decoration: none;}
+        .section,.slide{overflow: hidden;}
+        #menu .active a { color: #fff; background-color: #333;}
+        #fullpage .section1{background: url(img/bg1-s.jpg) 50% 0 no-repeat;;}
+        #fullpage .section2{/*background: url(img/2.jpg) center/cover;*/}
+        #fullpage .section3 .slide1{/*background: url(img/3.jpg) center/cover;*/}
+        #fullpage .section4{/*background: url(img/4.jpg) center/cover;*/}
+        #fullpage .section1{}
+        #fullpage .section1 h1{font-size: 20px;text-align: center;color: #fff;font-weight: 400;transition: all 2s;transform:rotateX(90deg);}
+        #fullpage .section1 p{position:relative;left: 0;font-size: 14px;width: 400px;margin: 10px auto;color: #ddd;margin-top: 50px;transform:rotateY(90deg);transition: all 2s ease 2s;}
+
+        #fullpage .section1 h1.s1h{transform:rotateX(0deg);font-size: 40px}
+        #fullpage .section1 p.s1p{transform:rotateY(0deg);}
+
+		#fullpage .section2 .thin-desc{width: 500px;margin: 50px auto;}
+		#fullpage .section2 .thin-desc h2{position: relative;top:-300px;transition: all 2s ease;}
+		#fullpage .section2 .thin-desc p{position: relative;left:120%;transition: all 3s ease;text-align: center;}
+		#fullpage .section2 .thin-img{width: 1200px;margin: 0 auto;}
+		#fullpage .section2 .thin-img img{position: relative;}
+				  .section2 .thin-img .thin-img1{top:-50px;width: 400px;left: -1000px;transition: all 1s ease;}
+				  .section2 .thin-img .thin-img2{top:0px;width: 450px;left: 1000px;transition: all 1s ease 1s;}
+			
+		#fullpage .section2 .thin-desc h2.s2h{position: relative;top:0px;}
+		#fullpage .section2 .thin-desc p.s2p{position: relative;left:0px;}
+		#fullpage .section2 .thin-img img.s2p1{left: 250px;}
+		#fullpage .section2 .thin-img img.s2p2{left: 70px;}
+		
+		#fullpage .section3 .slide1{position: relative;}
+		#fullpage .section3 .slide1 .screen-desc{width: 500px;position: relative;top:-30px;left: 300px;width: 500px}
+		#fullpage .section3 .slide1 .screen-desc h2{position: relative;top:-300px;transition: all 1s ease;margin-bottom: 20px}
+		#fullpage .section3 .slide1 .screen-desc p{transform:rotateY(450deg);transition: all 1s ease;}
+		#fullpage .section3 .slide1 .screen-desc .parameters-list{}
+		#fullpage .section3 .slide1 .screen-desc .parameters-list li{overflow: hidden;margin-top: 50px;width: 300px;position: relative;left: -800px;transition: all 1s ease;}
+		#fullpage .section3 .slide1 .screen-desc .parameters-list .li1{transition-delay: 0.5s}
+		#fullpage .section3 .slide1 .screen-desc .parameters-list .li2{transition-delay: 1s}
+		#fullpage .section3 .slide1 .screen-desc .parameters-list .li3{transition-delay: 1.5s}
+
+		#fullpage .section3 .slide1 .screen-desc .parameters-list li span{color: #666;font-size: 16px;line-height: 25px;float:right;}
+
+		#fullpage .section3 .slide1 .screen-desc .parameters-list li h3{color: #666;font-size: 30px;line-height:30px;float: left;font-weight: 400;}
+		#fullpage .section3 .slide1 .screen-img{position: absolute;right: 700px; bottom:0px;width: 100px}
+		#fullpage .section3 .slide1 .screen-img img{width: 800px;}
+
+		#fullpage .section3 .slide1 .screen-desc h2.s3h{top:0px;}
+		#fullpage .section3 .slide1 .screen-desc p.s3p{transform:rotateY(0deg)}
+		#fullpage .section3 .slide1 .screen-desc li.s3l{left:0px;}
+
+
+
+
+		#fullpage .section4{position: relative;}
+		#fullpage .section4 .flyme-desc{position: relative;top: -200px}
+		#fullpage .section4 .flyme-desc h2{opacity: 0;transform:rotateZ(360deg);transition: all 1s ease;margin-bottom: 20px}
+		#fullpage .section4 .flyme-desc p{text-align: center;position: relative;left: -1200px;transition: all 1.5s ease;}
+
+		
+		#fullpage .section4 .flyme-img{position: absolute;left: 52%;bottom: -500px;width: 700px;transform:translateX(-50%);transition: all 3s ease;}
+		#fullpage .section4 .flyme-img img{width: 220px;position: relative;}
+		#fullpage .section4 .flyme-img .flyme-pic1{margin-right: -50px;z-index: 1;}
+		#fullpage .section4 .flyme-img .flyme-pic2{width: 250px; z-index: 100;}
+		#fullpage .section4 .flyme-img .flyme-pic3{margin-left: -50px;z-index: 1;}
+		
+		#fullpage .section4 .flyme-desc h2.s4h{opacity: 1;transform:rotateZ(0deg)}
+		#fullpage .section4 .flyme-desc p.s4p{left: 0;}
+		#fullpage .section4 div.s4pic{bottom: -50px;transform:translateX(-50%);}
+
+
+
+
+
+
+
+
+        /*#fullpage .section2 h2{position:relative;left: -120%;top: -1000px}
+        #fullpage .section3 .slide1 h4{position:relative;font-size: 30px;opacity: 0;}
+        #fullpage .section3 .slide2 h4{position:relative;font-size: 30px;opacity: 0;}*/
+	</style>
+</head>
+<body>
+	<ul id="menu">
+	    <li data-menuanchor="page1" class="active"><a href="#page1">首页</a></li>
+	    <li data-menuanchor="page2"><a href="#page2">机身</a></li>
+	    <li data-menuanchor="page3"><a href="#page3">屏幕</a></li>
+	    <li data-menuanchor="page4"><a href="#page4">内核</a></li>
+	</ul>
+	<div id="fullpage">
+	    <div class="section section1">
+	   		<h1>青年良品</h1>
+			<p>追求极致，轻易不说完美&mdash;&mdash;半年时间内，我们便更新了魅蓝note2。它从各个方面都更进一步；无论是 R 角弧线、还是更佳的相机算法、甚或是全新的 mBack 键……如此多的改进，只为给你一台更加完美的「青年良品」。</p>
+
+	    </div>
+	    <div class="section section2">
+	    	<div class="thin-desc">
+				<h2 class="h2cs">多彩纤薄机身</h2>
+				<p class="pcs">魅蓝 note2 延续了多彩配色风格，并首次引入魅族 MX 系列的金属灰配色，深邃，且富有质感。魅蓝 note2 适于年轻个性，也完美契合轻熟商务。仅 149g 的重量，薄至 8.7mm 的厚度，更性感的 R 角弧度让单手握持毫无繁重。</p>
+			</div>
+			<div class="thin-img">
+				<img alt="thin" src="img/phone-blue.png" class="thin-img1">
+				<img alt="thin" src="img/phone-white.png" class="thin-img2">
+			</div>
+
+	    </div>
+	    <div class="section section3">
+	        <div class="slide slide1">
+				<div class="screen-desc">
+					<h2 class="h2cs">5.5 英寸 1080P 全贴合屏幕</h2>
+					<p class="pcs">5.5 英寸 1080P Full HD 屏幕，IGZO 显示技术可让每台手机都有高度统一的出色表现，也具备绝佳的低功耗特性。403PPI 带来细腻的视觉体验，对比度高达 1000：1。屏幕亮度则为 450cd/m²，户外强光下依旧清晰可见。GFF 全贴合，避免反光影响，屏显透彻。</p>
+					<ul class="parameters-list">
+						<li class="li1"><h3>403</h3><span>PPI</span></li>
+						<li class="li2"><h3>1000 : 1</h3><span>对比度</span></li>
+						<li class="li3"><h3>450cd/m²</h3><span>亮度</span></li>
+					</ul>
+				</div>
+				
+				<div class="screen-img">
+					<img alt="screen" src="img/screen.png">
+				</div>
+
+	        </div>
+	        <div class="slide slide2">
+	        	<h4></h4>
+	        </div>
+	        <div class="slide slide3">
+		<h4></h4>
+	        </div>
+	    </div>
+	    <div class="section section4">
+			<div class="flyme-desc">
+				<h2 class="h2cs">基于 Android 5.1 内核的全新 Flyme 4.5 系列</h2>
+				<p class="pcs">Android 5.1 的优秀特性需结合 64 位处理器才能最大化释放。在全新的 Flyme 4.5 系统上，可切实感受到最先进的 Android 内存管控机制与电池续航控制。</p>
+			</div>		
+			<div class="flyme-img">
+				<img class="flyme-pic1" src="img/p1.png">
+				<img class="flyme-pic2" src="img/p2.png">
+				<img class="flyme-pic3" src="img/p3.png">
+			</div>
+	    </div>
+	</div>
+	<script type="text/javascript">
+		$("#fullpage").fullpage({
+			anchors: ['page1', 'page2', 'page3', 'page4'],
+			menu:'#menu',
+			sectionsColor: ['#1bbc9b', '#f5f5f5', '#f5f5f5', '#f5f5f5'],
+			//slidesNavigation: true,
+			afterRender: function(){
+            	$(".section1 h1").addClass("s1h");
+            	$(".section1 p").addClass("s1p");
+        	},
+			afterLoad: function (anchorLink, index) {
+	            if(index === 1){
+	               	$(".section1 h1").addClass("s1h");
+            		$(".section1 p").addClass("s1p");
+	            }else if(index === 2){
+	                $(".section2 h2").addClass("s2h");
+	                $(".section2 p").addClass("s2p");
+	                $(".section2 .thin-img1").addClass("s2p1");
+	                $(".section2 .thin-img2").addClass("s2p2");
+	            }else if(index === 3){
+	            	$(".section3 .slide1 h2").addClass("s3h");
+	            	$(".section3 .slide1 p").addClass("s3p");
+	            	$(".section3 .slide1 li").addClass("s3l");
+	            }else if(index === 4){
+	            	 $(".section4 h2").addClass("s4h");
+	            	$(".section4 p").addClass("s4p");
+	            	$(".section4 .flyme-img").addClass("s4pic");
+	            }
+        	},
+        	onLeave: function (index,nextIndex,direction) {
+	            if(index === 1){
+	                $(".section1 h1").removeClass("s1h");
+            		$(".section1 p").removeClass("s1p");
+	            }else if(index === 2){
+	                $(".section2 h2").removeClass("s2h");
+	                $(".section2 p").removeClass("s2p");
+	                $(".section2 .thin-img1").removeClass("s2p1");
+	                $(".section2 .thin-img2").removeClass("s2p2");
+	            }else if(index === 3){
+	            	 $(".section3 .slide1 h2").removeClass("s3h");
+	            	$(".section3 .slide1 p").removeClass("s3p");
+	            	$(".section3 .slide1 li").removeClass("s3l");
+	            }else if(index === 4){
+	            	 $(".section4 h2").removeClass("s4h");
+	            	$(".section4 p").removeClass("s4p");
+	            	$(".section4 .flyme-img").removeClass("s4pic");
+	            }
+       		},
+       		afterSlideLoad: function (anchorLink,index,slideIndex,direction) {
+	            if(index === 3){
+	                if(slideIndex === 0){   // slideIndex从0开始计数
+	                   	$(".section3 .slide1 h4").animate({opacity: "1"}, 500);
+	                }else if(slideIndex === 1){
+	                	$(".section3 .slide2 h4").animate({opacity: "1"}, 500);
+	                }
+	            }
+        	},
+       	 	onSlideLeave: function(anchorLink,index,slideIndex,direction){
+	            // if(index === 3){
+	            //     if(slideIndex === 0){   // slideIndex从0开始计数
+	            //        $(".section3 .slide1 h4").animate({opacity: "0"}, 500);
+	            //     }else if(slideIndex === 1){
+	            //     	$(".section3 .slide2 h4").animate({opacity: "0"}, 500);
+	            //     }
+	            // }
+        	}
+
+		});
+	</script>
+</body>
+</html>
