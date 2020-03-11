@@ -1,4 +1,4 @@
 # fullpage-shouuji-
-·ÂÊÖ»ú·¢²¼
+   äº§å“å‘å¸ƒ
 
-##ÕâÊÇÒ»¸öÎÒÑ§Ï°fullpageµÄÊ±ºòÁ·Ï°µÄ¼òµ¥ÏîÄ¿
+##è¿™æ˜¯ä¸€ä¸ªfullpageçš„é¡¹ç›®
